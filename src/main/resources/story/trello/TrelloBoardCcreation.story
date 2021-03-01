@@ -1,9 +1,8 @@
 Scenario: Trello Board creation using API  
-
 Given I am on the main application page
-When I click on an element by the xpath '//a[text()='Log in']' 
-When I enter `ktsiaryna.test.90@bk.ru` in a field  by the xpath '//input[@id='user']'
-When I click on an element by the xpath '//input[@id='login']'
-When I enter '<pass>' in a field located '//input[@id='password']'
-When I click on an element by the xpath '//button[@id='login-submit']'
-Then the text 'Welcome, ' exists
+When I log in as user '${user}' with password '${password}'
+When I wait until element located `By.xpath(//span[text()='Create new board'])` appears
+
+Scenario: Create Trello Board
+When I issue a HTTP POST request for a resource with the URL 'https://api.trello.com/1/boards/?key=${key}&token=${token}&name=board2'
+Then the response code is equal to '200'

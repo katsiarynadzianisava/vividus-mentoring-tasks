@@ -1,0 +1,9 @@
+{
+  "TEST-1": {
+    "type": "External",
+    "assertionPattern": "Expected: a string containing.* Actual: was *neSI6InNvZnQifQ==",
+    "storyPattern": "SignUpPrecondition.story",
+    "scenarioPattern": "Get email",
+    "stepPattern": "Then the page with the URL containing '${URLpart}' is loaded"
+  }
+}
